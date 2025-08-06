@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Stars, Settings } from 'lucide-react'
+import { Stars, Shield } from 'lucide-react'
 
 export function Navigation() {
   const pathname = usePathname()
@@ -27,13 +27,13 @@ export function Navigation() {
             </Button>
             
             <Button
-              variant={pathname === "/test-api" ? "default" : "ghost"}
+              variant={pathname === "/admin" ? "destructive" : "ghost"}
               size="sm"
               asChild
             >
-              <Link href="/test-api">
-                <Settings className="w-4 h-4 mr-2" />
-                Teste API
+              <Link href="/admin">
+                <Shield className="w-4 h-4 mr-2" />
+                Admin
               </Link>
             </Button>
           </div>
