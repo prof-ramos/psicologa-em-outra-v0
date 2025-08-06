@@ -28,6 +28,14 @@ export default function HomePage() {
   const [showChatbot, setShowChatbot] = useState(false)
   const { toast } = useToast()
 
+  const handleLocationSelect = (placeName: string, coords: { lat: number; lon: number }) => {
+    setLocation({
+      display_name: placeName,
+      lat: coords.lat,
+      lon: coords.lon
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
@@ -167,7 +175,7 @@ export default function HomePage() {
                         Local de nascimento
                       </Label>
                       <LocationCombobox
-                        onLocationSelect={setLocation}
+                        onLocationSelect={handleLocationSelect}
                         placeholder="Digite sua cidade..."
                       />
                     </div>
